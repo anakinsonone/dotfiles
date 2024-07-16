@@ -1,0 +1,28 @@
+# i3blocks provides a easier way to work with i3bar protocol
+# https://i3wm.org/docs/i3bar-protocol.html
+
+command=./$BLOCK_NAME
+full_text=$BLOCK_NAME
+background=#555555
+color=#FFFFFF
+
+[time]
+interval=30
+
+[battery]
+interval=60
+signal=10
+markup=pango
+
+[memory]
+interval=2
+command=./memory
+fulll_text=Hello
+
+[network_name]
+interval=3
+separator=false
+separator_block_width=0
+
+[network]
+interval=1

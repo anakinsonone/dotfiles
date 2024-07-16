@@ -1,0 +1,14 @@
+battery_val=$(cat /sys/class/power_supply/BAT1/capacity)
+icons=(󰁺 󰁻 󰁼 󰁽 󰁾 󰁿 󰂀 󰂁 󰂂 󰁹)
+#colors=('#FF5733' '#FFD633' '#B2FF33' '#B2FF33' '#33FF4D') 
+
+is_charging=$(cat /sys/class/power_supply/ADP1/online)
+icon_to_show=${icons[$((battery_val / 11))]}
+#color_to_show=${colors[$((battery_val / 20))]}
+if [ $is_charging -eq 1  ] ; then
+    icon_to_show=󰂄
+#    color_to_show=${colors[4]}
+fi
+
+#echo " <span color='$color_to_show' size='9.5pt'>$icon_to_show</span> $battery_val% "
+echo " <span size='9.5pt'>$icon_to_show</span> $battery_val% "

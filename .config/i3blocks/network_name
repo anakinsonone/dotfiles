@@ -1,0 +1,20 @@
+# Created this as separate file as nmcli output might take more than 1s so it should not cause problems with network speed calculation in network script
+
+# Detect default interface
+INTERFACE=$(ip route | awk '/^default/ { print $5 ; exit }')
+
+interface_type=$(nmcli device show $INTERFACE | \
+  grep "GENERAL\.TYPE" | \
+  sed 's/.*: *//')
+
+is_wifi="false"
+prefix="" 
+
+if [ "$interface_type" = "wifi" ]; then
+  wifi_name=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2)
+  prefix="󰤨  ${wifi_name}" 
+elif [ "$interface_type" = "ethernet" ]; then
+  prefix="󰈀 wired" 
+fi
+
+echo " $prefix"

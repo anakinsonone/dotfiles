@@ -1,0 +1,1 @@
+echo " Mem $(free -m | awk 'NR==2{printf "%.2fG", $3/1024 }') "

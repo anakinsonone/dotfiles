@@ -1,0 +1,71 @@
+# Credits - https://github.com/vivien/i3blocks-contrib/blob/master/bandwidth/bandwidth
+
+# Detect default interface
+INTERFACE=$(ip route | awk '/^default/ { print $5 ; exit }')
+
+# If no default interface found or if state of default interface is down
+if [ -z $INTERFACE ] || ! [ -e "/sys/class/net/${INTERFACE}/operstate" ] || \
+    (! [ "`cat /sys/class/net/${INTERFACE}/operstate`" = "up" ])
+then
+    echo " 󰲜  No Internet " 
+    exit 0
+fi
+
+# path to store the old results in
+path="/tmp/$(basename $0)-${INTERFACE}"
+
+# grabbing data for each adapter.
+read rx < "/sys/class/net/${INTERFACE}/statistics/rx_bytes"
+read tx < "/sys/class/net/${INTERFACE}/statistics/tx_bytes"
+
+# get time
+time="$(date +%s)"
+
+# write current data if file does not exist. Do not exit, this will cause
+# problems if this file is sourced instead of executed as another process.
+if ! [[ -f "${path}" ]]; then
+  echo "${time} ${rx} ${tx}" > "${path}"
+  chmod 0666 "${path}"
+fi
+
+
+# read previous state and update data storage
+read old < "${path}"
+echo "${time} ${rx} ${tx}" > "${path}"
+
+# Convert to array
+old=(${old//;/ })
+time_diff=$(( $time - ${old[0]} ))
+
+# sanity check: has a positive amount of time passed
+[[ "${time_diff}" -gt 0 ]] || exit
+# calc bits transferred, and their rate in bits/s
+rx_diff=$(( $rx - ${old[1]} ))
+tx_diff=$(( $tx - ${old[2]} ))
+# Divide by 8 to get bits since actual diff is in bytes
+rx_rate=$(( $rx_diff / $time_diff ))
+tx_rate=$(( $tx_diff / $time_diff ))
+
+# shift by 10 bits to get Kib/s. If the value is larger than
+# 1024^2 = 1048576, then display Mib/s instead
+# incoming
+rx_kib=$(( $rx_rate >> 10 ))
+# outgoing
+tx_kib=$(( $tx_rate >> 10 ))
+
+assign_unit () {
+  if hash bc 2>/dev/null && [[ $2 -gt 1024 ]]; then
+    echo $(printf "%.1fMbps " "$(echo "scale=1; $1 / 1024" | bc)")
+  else
+    echo "${1}Kbps" 
+  fi
+}
+
+display_rx_rate=$(assign_unit $rx_kib $rx_rate)
+display_tx_rate=$(assign_unit $tx_kib $tx_rate)
+
+interface_type=$(nmcli device show $INTERFACE | \
+  grep "GENERAL\.TYPE" | \
+  sed 's/.*: *//')
+
+echo " ${display_rx_rate}  ${display_tx_rate}  "
