@@ -25,18 +25,18 @@ alias yaysua='yay -Sua --noconfirm'              # update only AUR pkgs (yay)
 alias yaysyu='yay -Syu --noconfirm'              # update standard pkgs and AUR pkgs (yay)
 
 # git
-alias addup='git add -u'
-alias addall='git add .'
-alias branch='git branch'
-alias checkout='git checkout'
-alias clone='git clone'
-alias commit='git commit -m'
-alias fetch='git fetch'
-alias pull='git pull origin'
-alias push='git push origin'
-alias stat='git status'  # 'status' is protected name so using 'stat' instead
-alias tag='git tag'
-alias newtag='git tag -a'
+# alias addup='git add -u'
+# alias addall='git add .'
+# alias branch='git branch'
+# alias checkout='git checkout'
+# alias clone='git clone'
+# alias commit='git commit -m'
+# alias fetch='git fetch'
+# alias pull='git pull origin'
+# alias push='git push origin'
+# alias stat='git status'  # 'status' is protected name so using 'stat' instead
+# alias tag='git tag'
+# alias newtag='git tag -a'
 
 #neovim
 alias vim='nvim'
@@ -46,7 +46,7 @@ alias svim='NVIM_APPNAME=nvim-spacevim nvim'
 alias cvim='NVIM_APPNAME=nvim-nvchad nvim'
 
 # taskbook
-alias tb='taskbook'
+# alias tb='taskbook'
 
 # get fastest mirrors
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
@@ -60,30 +60,6 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 alias ls='ls --color'
-
-alias anki="QT_QPA_PLATFORM=xcb anki &"
-
-#serve-html
-serve-html() {
-  local filename="$1"
-
-  if [ -z "$1" ]; then
-    echo "Usage: serve_html <filename>"
-    return 1
-  fi
-
-  pushd "$(dirname "$filename")" > /dev/null || return 1
-
-  python3 -m http.server 9999 &
-  local server_pid=$!
-
-  sleep 1 # Give the server a moment to start
-
-  xdg-open "http://0.0.0.0:9999/${filename##*/}"
-
-  wait $server_pid
-  popd > /dev/null
-}
 
 # cloudflare warp-cli
 alias warpstat="warp-cli status"
