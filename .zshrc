@@ -91,12 +91,6 @@ export EDITOR="nvim"
 QT_QPA_PLATFORM=wayland
 ANKI_WAYLAND=1
 
-# Japanese keyboard input
-GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS=@im=fcitx
-GLFW_IM_MODULE=ibus
-
 # Setting the starship prompt
 # eval "$(starship init zsh)"
 # source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
