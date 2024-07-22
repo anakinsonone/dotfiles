@@ -139,6 +139,8 @@ config.bind('k', 'scroll-page 0 -0.25')
 config.bind('`', 'config-cycle colors.webpage.darkmode.enabled')
 config.set('auto_save.session', True)
 config.set('content.javascript.clipboard', "access")
+config.set('content.register_protocol_handler', True, 'https://mail.google.com?extsrc=mailto&url=%25s')
+config.set('content.notifications.enabled', False, 'https://www.chess.com')
 
 c.url.searchengines = {
     'DEFAULT': "https://google.com/search?hl=en&q={}",
