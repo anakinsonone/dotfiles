@@ -164,19 +164,19 @@ bindsym $mod+Shift+6 move container to workspace number $ws6; workspace number $
 bindsym $mod+Shift+7 move container to workspace number $ws7; workspace number $ws7;
 bindsym $mod+Shift+8 move container to workspace number $ws8; workspace number $ws8;
 bindsym $mod+Shift+9 move container to workspace number $ws9; workspace number $ws9;
-bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number $ws0;
+bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number $ws10;
 
 # move focused container to workspace
-bindsym $mod+Alt+1 move container to workspace number $ws1
-bindsym $mod+Alt+2 move container to workspace number $ws2
-bindsym $mod+Alt+3 move container to workspace number $ws3
-bindsym $mod+Alt+4 move container to workspace number $ws4
-bindsym $mod+Alt+5 move container to workspace number $ws5
-bindsym $mod+Alt+6 move container to workspace number $ws6
-bindsym $mod+Alt+7 move container to workspace number $ws7
-bindsym $mod+Alt+8 move container to workspace number $ws8
-bindsym $mod+Alt+9 move container to workspace number $ws9
-bindsym $mod+Alt+0 move container to workspace number $ws10
+bindsym $mod+Mod1+1 move container to workspace number $ws1
+bindsym $mod+Mod1+2 move container to workspace number $ws2
+bindsym $mod+Mod1+3 move container to workspace number $ws3
+bindsym $mod+Mod1+4 move container to workspace number $ws4
+bindsym $mod+Mod1+5 move container to workspace number $ws5
+bindsym $mod+Mod1+6 move container to workspace number $ws6
+bindsym $mod+Mod1+7 move container to workspace number $ws7
+bindsym $mod+Mod1+8 move container to workspace number $ws8
+bindsym $mod+Mod1+9 move container to workspace number $ws9
+bindsym $mod+Mod1+0 move container to workspace number $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -245,8 +245,9 @@ bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
-# gaps outer 20
-# gaps inner 5
+gaps outer 20
+gaps inner 5
+
 ## Screenshots
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$( date '+%Y-%m-%d_%H-%M-%S' )_screenshot.png"
 bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/screenshots/$( date '+%Y-%m-%d_%H-%M-%S' )_screenshot.png"
