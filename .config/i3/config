@@ -245,7 +245,7 @@ bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
-gaps outer 20
+# gaps outer 0
 gaps inner 5
 
 ## Screenshots
