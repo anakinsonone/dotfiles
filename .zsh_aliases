@@ -41,9 +41,9 @@ alias yaysyu='yay -Syu --noconfirm'              # update standard pkgs and AUR 
 #neovim
 alias vim='nvim'
 alias vi='nvim'
-alias kvim='NVIM_APPNAME=nvim-kickstart nvim'
+alias kvim='NVIM_APPNAME=kickstart nvim'
 alias svim='NVIM_APPNAME=nvim-spacevim nvim'
-alias cvim='NVIM_APPNAME=nvim-nvchad nvim'
+alias cvim='NVIM_APPNAME=nvchad nvim'
 
 # taskbook
 # alias tb='taskbook'
