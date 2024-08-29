@@ -1,11 +1,25 @@
 local plugins = {
   {
-    'MeanderingProgrammer/markdown.nvim',
-    name = 'render-markdown',
+    "NeogitOrg/neogit",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-lua/plenary.nvim",  -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+
+      -- Only one of these is needed, not both.
+      "nvim-telescope/telescope.nvim", -- optional
+    },
+    config = function()
+      require "custom.configs.neogit"
+    end
+  },
+
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    cmd = {"RenderMarkdown"},
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
     config = function()
-      require('render-markdown').setup({
-      })
+      require('render-markdown').setup({})
     end,
   },
 
@@ -38,11 +52,6 @@ local plugins = {
       require "custom.configs.dap"
       require("core.utils").load_mappings("dap")
     end
-  },
-
-  {
-    "theprimeagen/harpoon",
-    event = "VeryLazy",
   },
 
   {
@@ -153,6 +162,7 @@ local plugins = {
         "java",
         "javascript",
         "lua",
+        "markdown",
         "tsx",
         "typescript",
         "vim",
