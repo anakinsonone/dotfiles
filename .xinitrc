@@ -48,6 +48,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+# dark mode for GTK based applications
+export GTK_THEME=Adwaita:dark
+export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
+export QT_STYLE_OVERRIDE=Adwaita-Dark
+
 # Enable Japanese INPUT
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
