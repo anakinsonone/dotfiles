@@ -13,7 +13,7 @@ local options = {
     update_root = false,
   },
   view = {
-    adaptive_size = false,
+    adaptive_size = true,
     side = "left",
     width = 30,
     preserve_window_proportions = true,
@@ -27,7 +27,7 @@ local options = {
   },
   actions = {
     open_file = {
-      resize_window = false,
+      resize_window = true,
     },
   },
   renderer = {
