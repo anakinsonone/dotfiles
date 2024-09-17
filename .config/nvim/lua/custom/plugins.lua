@@ -36,10 +36,14 @@ local plugins = {
 
   {
     'MeanderingProgrammer/render-markdown.nvim',
-    cmd = {"RenderMarkdown"},
+    event = "VeryLazy",
+    opts = {},
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
     config = function()
-      require('render-markdown').setup({})
+      require('render-markdown').setup({
+        enabled = true,
+        debounce = 100,
+      })
     end,
   },
 
