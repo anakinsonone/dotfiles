@@ -278,7 +278,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # gaps outer 0
-gaps inner 5
+# gaps inner 5
 
 ## Screenshots
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$( date '+%Y-%m-%d_%H-%M-%S' )_screenshot.png"
