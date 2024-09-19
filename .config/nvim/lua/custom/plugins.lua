@@ -1,5 +1,17 @@
 local plugins = {
   {
+    'kevinhwang91/nvim-ufo',
+    dependencies = { 'kevinhwang91/promise-async' },
+    config = function()
+      require('ufo').setup({
+        provider_selector = function(bufnr, filetype, buftype)
+          return { 'treesitter', 'indent' }
+        end
+      })
+    end
+  },
+
+  {
     "kdheepak/lazygit.nvim",
     cmd = {
       "LazyGit",
@@ -214,17 +226,6 @@ local plugins = {
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = { signs = false }
   },
-
-  -- {
-  --
-  --   "nvim-tree/nvim-tree.lua",
-  --   opts = function ()
-  --     opts = require "plugins.configs.nvimtree"
-  --     opts.view.adaptive_size = true
-  --     opts.view.side = "right"
-  --
-  --   end
-  -- }
 
 }
 return plugins

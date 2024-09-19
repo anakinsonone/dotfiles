@@ -45,7 +45,7 @@ local function compile_and_run_java()
 
   -- Run the compiled program with input from input.txt and output to output.txt
   local run_command = 'java -classpath ' ..
-  directory_path .. ' ' .. file_name .. ' < ' .. directory_path .. '/input.txt > ' .. directory_path .. '/output.txt'
+      directory_path .. ' ' .. file_name .. ' < ' .. directory_path .. '/input.txt > ' .. directory_path .. '/output.txt'
   os.execute(run_command)
 end
 
@@ -73,6 +73,18 @@ M.general = {
     ["N"] = { "Nzzzv", "Keep search term in middle" },
     ["<leader>y"] = { "+y", "Yank into system register" },
     ["<leader>Y"] = { "+Y", "Yank into system register" },
+    ["zR"] = {
+      function()
+        require("ufo").openAllFolds()
+      end,
+      "Open all folds"
+    },
+    ["zM"] = {
+      function()
+        require("ufo").closeAllFolds()
+      end,
+      "Open all folds"
+    },
   },
   v = {
     ["J"] = { ":m '>+1<CR>gv=gv", "Move Selection Down" },
