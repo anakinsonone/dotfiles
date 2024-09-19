@@ -88,3 +88,5 @@ alias ls='ls --color'
 alias warpstat="warp-cli status"
 alias warpc="warp-cli connect"
 alias warpdc="warp-cli disconnect"
+
+alias logout="loginctl terminate-user $USER"
