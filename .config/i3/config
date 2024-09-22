@@ -298,7 +298,7 @@ bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewi
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 # launch browser
-bindsym $mod+B exec firefox
+bindsym $mod+B exec zen-browser
 
 # launch spotify
 bindsym $mod+Shift+s exec spotify-launcher
