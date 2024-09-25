@@ -90,6 +90,9 @@ M.general = {
     ["J"] = { ":m '>+1<CR>gv=gv", "Move Selection Down" },
     ["K"] = { ":m '<-2<CR>gv=gv", "Move Selection Up" },
     ["<leader>y"] = { "+y", "Yank into system register" },
+  },
+  i = {
+    ["<C-BS>"] = { "<C-W>", "Delete word before cursor" }
   }
 }
 
