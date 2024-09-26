@@ -301,4 +301,4 @@ bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection c
 bindsym $mod+B exec zen-browser
 
 # launch spotify
-bindsym $mod+Shift+s exec spotify-launcher
+bindsym $mod+Shift+s exec spotify
