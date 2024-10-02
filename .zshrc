@@ -72,6 +72,8 @@ path+=("/usr/local/flutter/bin")
 # Rust
 path+=("/home/akhilesh/.cargo/env")
 
+path+=("/home/akhilesh/.local/bin")
+
 #OpenAI API Key
 # export OPENAI_API_KEY=$(< $HOME/Documents/secrets/open_api.txt)
 
