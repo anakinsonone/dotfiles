@@ -7,7 +7,19 @@
 
 set $mod Mod4
 set $alt Mod1
+set $priDis eDP1
 set $secDis HDMI2
+
+workspace 1 output $priDis
+workspace 2 output $priDis
+workspace 3 output $priDis
+workspace 4 output $priDis
+workspace 5 output $priDis
+workspace 6 output $priDis
+workspace 7 output $priDis
+workspace 8 output $priDis
+workspace 9 output $priDis
+workspace 10 output $priDis
 
 workspace 11 output $secDis
 workspace 12 output $secDis
