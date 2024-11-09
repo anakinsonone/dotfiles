@@ -1,9 +1,14 @@
-local base = require("plugins.configs.lspconfig")
-local on_attach = base.on_attach
-local capabilities = base.capabilities
-local util = require "lspconfig/util"
+-- load defaults i.e lua_lsp
+require("nvchad.configs.lspconfig").defaults()
 
-local lspconfig = require("lspconfig")
+local lspconfig = require "lspconfig"
+
+-- EXAMPLE
+local servers = { "html", "cssls", "ts_ls", "tailwindcss", "eslint", "cssls", "jdtls", "jsonls", "clangd", "gopls" }
+local nvlsp = require "nvchad.configs.lspconfig"
+local on_attach = nvlsp.on_attach
+local capabilities = nvlsp.capabilities
+local on_init = nvlsp.on_init
 
 local function organize_imports()
   local params = {
@@ -13,24 +18,23 @@ local function organize_imports()
   vim.lsp.buf.execute_command(params)
 end
 
-local servers = { "tsserver", "tailwindcss", "eslint", "cssls", "jdtls", "jsonls", "clangd", "gopls" }
-
+-- lsps with default config
 for _, lsp in ipairs(servers) do
-  if lsp == "tsserver" then
+  if lsp == "ts_ls" then
     lspconfig[lsp].setup {
       on_attach = on_attach,
       capabilities = capabilities,
       init_options = {
         preferences = {
           disableSuggestions = true,
-        }
+        },
       },
       commands = {
         OrganizeImports = {
           organize_imports,
           description = "Organize Imports",
-        }
-      }
+        },
+      },
     }
   elseif lsp == "clangd" then
     lspconfig[lsp].setup {
@@ -39,20 +43,7 @@ for _, lsp in ipairs(servers) do
       cmd = {
         "clangd",
         "--offset-encoding=utf-16",
-      }, }
-  elseif lsp == "rust_analyzer" then
-    lspconfig["rust_analyzer"].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      filetypes = { "rust" },
-      root_dir = util.root_pattern("Cargo.toml"),
-      settings = {
-        ['rust_analyzer'] = {
-          cargo = {
-            allFeatures = true,
-          }
-        }
-      }
+      },
     }
   elseif lsp == "jdtls" then
     lspconfig[lsp].setup {
@@ -63,7 +54,15 @@ for _, lsp in ipairs(servers) do
   else
     lspconfig[lsp].setup {
       on_attach = on_attach,
+      on_init = on_init,
       capabilities = capabilities,
     }
   end
 end
+
+-- configuring single server, example: typescript
+-- lspconfig.ts_ls.setup {
+--   on_attach = nvlsp.on_attach,
+--   on_init = nvlsp.on_init,
+--   capabilities = nvlsp.capabilities,
+-- }
