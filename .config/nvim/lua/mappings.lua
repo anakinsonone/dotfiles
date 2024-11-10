@@ -80,6 +80,8 @@ map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", { desc = "window up" })
 map("n", "<F4>", compile_and_run_c, { desc = "Compile & Run C" })
 map("n", "<F5>", compile_and_run_cpp, { desc = "Compile & Run C++" })
 map("n", "<F6>", compile_and_run_java, { desc = "Compile & Run Java" })
+map("n", "n", "nzzzv", { desc = "Keep search term in middle" })
+map("n", "N", "Nzzzv", { desc = "Keep search term in middle" })
 
 -- insert mode
 map("i", "jk", "<ESC>")
@@ -101,3 +103,40 @@ end, { desc = "Go to previous diagnostic" })
 map("n", "]d", function()
 	vim.diagnostic.goto_next({ float = { border = "rounded" } })
 end, { desc = "Go to previous diagnostic" })
+
+-- navigate hunks
+map("n", "[c", function()
+	if vim.wo.diff then
+		return "[c"
+	end
+	vim.schedule(function()
+		require("gitsigns").prev_hunk()
+	end)
+	return "<Ignore>"
+end, { desc = "Jump to previous hunk" })
+map("n", "]c", function()
+	if vim.wo.diff then
+		return "]c"
+	end
+	vim.schedule(function()
+		require("gitsigns").next_hunk()
+	end)
+	return "<Ignore>"
+end, { desc = "Jump to next hunk" })
+
+-- git actions
+map("n", "<leader>rh", function()
+	require("gitsigns").reset_hunk()
+end, { desc = "Reset hunk" })
+map("n", "<leader>ph", function()
+	require("gitsigns").preview_hunk()
+end, { desc = "Preview Hunk" })
+map("n", "<leader>gb", function()
+	package.loaded.gitsigns.blame_line()
+end, { desc = "Blame line" })
+map("n", "<leader>td", function()
+	require("gitsigns").toggle_deleted()
+end, { desc = "Toggle deleted" })
+
+-- noice
+map("n", "<leader>dn", "<cmd> NoiceDismiss <CR>", { desc = "Dismiss notifications" })

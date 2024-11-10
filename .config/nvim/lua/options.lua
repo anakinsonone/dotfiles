@@ -1,12 +1,24 @@
-require "nvchad.options"
+require("nvchad.options")
 
 local api = vim.api
 local opt = vim.opt
 local autocmd = vim.api.nvim_create_autocmd
 
-opt.cursorlineopt ='both' -- to enable cursorline!
+vim.diagnostic.config({
+	float = {
+		border = "rounded",
+		source = true,
+	},
+	virtual_text = false,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+})
+
+opt.cursorlineopt = "both" -- to enable cursorline!
 opt.cursorline = true
-api.nvim_set_hl(0, 'CursorLineNr', {fg = "#FF9E64"})
+api.nvim_set_hl(0, "CursorLineNr", { fg = "#FF9E64" })
 
 -- Enable folding
 opt.foldmethod = "expr"
@@ -15,7 +27,7 @@ opt.foldenable = false
 
 -- Reload buffer when file changes on disk
 opt.autoread = true
-api.nvim_command "autocmd CursorHold * checktime"
+api.nvim_command("autocmd CursorHold * checktime")
 
 -- Set line number by default
 opt.nu = true
@@ -42,9 +54,9 @@ opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", eol = "󱞥" }
 
 -- Highlight when yanking text
 autocmd("TextYankPost", {
-  desc = "Highlight when yanking (copying) text",
-  group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
