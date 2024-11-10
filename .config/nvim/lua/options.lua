@@ -7,7 +7,7 @@ local autocmd = vim.api.nvim_create_autocmd
 -- local o = vim.o
 opt.cursorlineopt ='both' -- to enable cursorline!
 opt.cursorline = true
-api.nvim_set_hl(0, 'CursorLineNr', {fg ="orange"})
+api.nvim_set_hl(0, 'CursorLineNr', {fg = "#FF9E64"})
 
 -- Enable folding
 opt.foldmethod = "expr"
