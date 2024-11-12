@@ -284,8 +284,8 @@ bindsym $mod+r mode "resize"
 bindsym $mod+x exec i3lock
 
 # Hide window title
-default_border none
-default_floating_border none
+default_border pixel
+default_floating_border pixel
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id  amixer set Master 5%+
