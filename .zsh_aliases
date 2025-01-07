@@ -85,7 +85,7 @@ alias fgrep='fgrep --color=auto'
 alias ls='ls --color'
 
 # cloudflare warp-cli
-alias warpstat="warp-cli status"
+alias warps="warp-cli status"
 alias warpc="warp-cli connect"
 alias warpdc="warp-cli disconnect"
 
