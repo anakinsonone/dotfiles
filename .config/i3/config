@@ -296,8 +296,8 @@ bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
-gaps outer 4
-gaps inner 8
+# gaps outer 4
+# gaps inner 8
 
 ## Screenshots
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$( date '+%Y-%m-%d_%H-%M-%S' )_screenshot.png"
