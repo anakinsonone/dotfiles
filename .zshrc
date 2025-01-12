@@ -82,6 +82,7 @@ path+=("/home/akhilesh/.local/bin")
 export PATH
 
 export EDITOR="nvim"
+export BROWSER="/usr/bin/firefox"
 
 QT_QPA_PLATFORM=wayland
 ANKI_WAYLAND=1
