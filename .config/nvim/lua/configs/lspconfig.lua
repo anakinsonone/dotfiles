@@ -4,7 +4,16 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require("lspconfig")
 
 -- EXAMPLE
-local servers = { "html", "cssls", "ts_ls", "tailwindcss", "eslint", "cssls", "jsonls", "clangd", "gopls" }
+local servers = {
+	"clangd",
+	"cssls",
+	"eslint",
+	"gopls",
+	"html",
+	"jsonls",
+	"tailwindcss",
+	"ts_ls",
+}
 local nvlsp = require("nvchad.configs.lspconfig")
 local on_attach = nvlsp.on_attach
 local capabilities = nvlsp.capabilities
