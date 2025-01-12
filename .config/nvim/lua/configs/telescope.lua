@@ -1,19 +1,19 @@
 local options = {
 	defaults = {
-		selection_strategy = "reset",
-		layout_strategy = "horizontal",
+		file_ignore_patterns = {
+			"node_modules",
+		},
 		layout_config = {
 			horizontal = {
 				prompt_position = "bottom",
 			},
 		},
-		sorting_strategy = "descending",
-		prompt_prefix = " ",
-		selection_caret = " ",
+		layout_strategy = "horizontal",
 		path_display = { "truncate" },
-		file_ignore_patterns = {
-			"node_modules",
-		},
+		prompt_prefix = " ",
+		selection_caret = " ",
+		selection_strategy = "reset",
+		sorting_strategy = "descending",
 	},
 }
 
