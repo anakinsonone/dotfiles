@@ -49,8 +49,8 @@ opt.scrolloff = 8
 opt.colorcolumn = "80"
 
 -- list characters
-opt.list = true
-opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", eol = "󱞥" }
+-- opt.list = true
+-- opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", eol = "󱞥" }
 
 -- Highlight when yanking text
 autocmd("TextYankPost", {
