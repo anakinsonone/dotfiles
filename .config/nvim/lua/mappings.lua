@@ -145,3 +145,8 @@ map("n", "<leader>dn", "<cmd> NoiceDismiss <CR>", { desc = "Dismiss notification
 map("n", "<leader>gd", "<cmd>:Telescope lsp_definitions<CR>", { desc = "Open LSP definitions in telescope" })
 map("n", "<leader>gr", "<cmd>:Telescope lsp_references<CR>", { desc = "Open LSP references in telescope" })
 map("n", "<leader>gi", "<cmd>:Telescope lsp_implementations<CR>", { desc = "Open LSP references in implementations" })
+
+map("n", ">", "<cmd>vertical resize +5<cr>", { desc = "Increase Window width" })
+map("n", "<", "<cmd>vertical resize -5<cr>", { desc = "Decrease Window width" })
+map("n", "+", "<cmd>horizontal resize +2<cr>", { desc = "Increase Window Height" })
+map("n", "-", "<cmd>horizontal resize -2<cr>", { desc = "Decrease Window Height" })
