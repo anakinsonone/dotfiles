@@ -102,7 +102,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # show running windows
-bindsym $mod+Tab exec --no-startup-id rofi -show window
+# bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -314,3 +314,8 @@ bindsym $mod+B exec firefox
 
 # launch spotify
 bindsym $mod+Shift+s exec spotify
+
+# switch workspaces
+bindsym $mod+grave workspace back_and_forth
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
