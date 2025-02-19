@@ -46,7 +46,7 @@ opt.hlsearch = false
 opt.incsearch = true
 
 opt.scrolloff = 8
-opt.colorcolumn = "80"
+opt.colorcolumn = "100"
 
 -- list characters
 -- opt.list = true
