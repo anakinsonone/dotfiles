@@ -319,3 +319,6 @@ bindsym $mod+Shift+s exec spotify
 bindsym $mod+grave workspace back_and_forth
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+
+# switch workspaces on window activation
+focus_on_window_activation focus
