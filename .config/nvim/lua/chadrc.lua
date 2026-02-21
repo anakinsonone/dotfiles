@@ -4,23 +4,27 @@
 
 ---@type ChadrcConfig
 local M = {}
-local highlights = require "configs.highlights"
+local highlights = require("configs.highlights")
 
 M.base46 = {
-  theme = "tokyonight",
+	theme = "tokyonight",
 
-  hl_override = highlights.override,
+	hl_override = highlights.override,
 }
 
 M.ui = {
-  telescope = {
-    style = "bordered", -- bordered/ borderless
-  },
+	telescope = {
+		style = "bordered", -- bordered/ borderless
+	},
 
-  statusline = {
-    theme = "minimal",
-    separator_style = "round",
-  },
+	statusline = {
+		theme = "minimal",
+		separator_style = "round",
+	},
+
+	tabufline = {
+		order = { "buffers", "tabs", "btns", "treeOffset" },
+	},
 }
 
 return M

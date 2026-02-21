@@ -10,6 +10,7 @@ local servers = {
 	"eslint",
 	"gopls",
 	"html",
+	"jdtls",
 	"jsonls",
 	"tailwindcss",
 	"ts_ls",
